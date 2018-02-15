@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto+Slab" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto+Slab|Lato" rel="stylesheet">
     </head>
     <body class="fade-in">
         <div class="title fade-in">
@@ -11,8 +11,8 @@
         <div class="image">
             <img class="fade-in" src="images/capacete.png" />
         </div>
-        <div class="texto">
-            <h2 class="fade-in">Sua definição de impossível mudará.</h2>
+        <div class="texto fade-in">
+            <h2>Sua definição de impossível mudará.</h2>
             <p>O capacete Dominius Plus te dará o poder de saber o que
                  qualquer pessoa no raio de 15 metros está pensando.</p>
         </div>
@@ -37,8 +37,7 @@
             font-size: 24px;
             box-sizing: border-box;
             color: white;
-            /* font-family: 'Roboto', sans-serif; */
-            font-family: 'Josefin Sans', sans-serif;
+            font-family: 'Lato', sans-serif;
         }
 
         html,body{
@@ -80,8 +79,6 @@
             grid-area: title;
         }
 
-        .title h2{
-        }
         .image{
             grid-area: image;
         }
@@ -109,5 +106,19 @@
             -webkit-transition: opacity 3.5s;
         }
         
+        @media screen and (max-width: 700px)
+        {
+            *{
+                font-size: 14px;
+            }
+
+            .title h2{
+                font-size: 1.6em;
+            }
+
+            body{
+                grid-gap: 5px;
+            }
+        }
     </style>
 </html>
