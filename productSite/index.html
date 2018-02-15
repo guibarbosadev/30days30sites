@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto+Slab" rel="stylesheet">
+    </head>
+    <body class="fade-in">
+        <div class="title fade-in">
+            <h2>Capacete Telepático Dominius Plus</h2>
+        </div>
+        <div class="image">
+            <img class="fade-in" src="images/capacete.png" />
+        </div>
+        <div class="texto">
+            <h2 class="fade-in">Sua definição de impossível mudará.</h2>
+            <p>O capacete Dominius Plus te dará o poder de saber o que
+                 qualquer pessoa no raio de 15 metros está pensando.</p>
+        </div>
+        <script>
+            function fadeIn()
+            {
+                var fades = document.getElementsByClassName("fade-in");
+                for(var i=0; i<fades.length; i++)
+                {
+                    fades[i].style.opacity = 1;
+                }
+            }
+            window.onload = function()
+            {
+                fadeIn();
+            }
+        </script>
+    </body>
+    
+    <style>
+        *{
+            font-size: 24px;
+            box-sizing: border-box;
+            color: white;
+            /* font-family: 'Roboto', sans-serif; */
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        html,body{
+            margin:0;
+            padding:0;
+        }
+    
+        body{
+            min-height: 100vh;
+            min-width: 100vw;
+            display: grid;
+            grid-template-areas:
+             "title"
+             "image"
+             "texto";
+            padding: 20px 20px;
+            grid-gap: 20px;
+            justify-items: center;
+            background: rgba(74,63,74,1);
+            background: -moz-linear-gradient(left, rgba(74,63,74,1) 0%, rgba(74,63,74,1) 50%, rgba(61,54,61,1) 100%);
+            background: -webkit-gradient(left top, right top, color-stop(0%, rgba(74,63,74,1)), color-stop(50%, rgba(74,63,74,1)), color-stop(100%, rgba(61,54,61,1)));
+            background: -webkit-linear-gradient(left, rgba(74,63,74,1) 0%, rgba(74,63,74,1) 50%, rgba(61,54,61,1) 100%);
+            background: -o-linear-gradient(left, rgba(74,63,74,1) 0%, rgba(74,63,74,1) 50%, rgba(61,54,61,1) 100%);
+            background: -ms-linear-gradient(left, rgba(74,63,74,1) 0%, rgba(74,63,74,1) 50%, rgba(61,54,61,1) 100%);
+            background: linear-gradient(to right, rgba(74,63,74,1) 0%, rgba(74,63,74,1) 50%, rgba(61,54,61,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4a3f4a', endColorstr='#3d363d', GradientType=1 );
+        }
+
+        h2{
+            font-size: 2em;
+            margin: 0 0 5px 0;            
+        }
+
+        p{   
+            margin: 0 0 5px 0;            
+        }
+
+        .title{
+            grid-area: title;
+        }
+
+        .title h2{
+        }
+        .image{
+            grid-area: image;
+        }
+
+        .texto{
+            padding: 0 50px;
+            grid-area: texto;
+            text-align: center;
+        }
+
+        .texto h2{
+            font-weight: 100;
+        }
+
+        .texto h2:nth-child(1){
+            font-size: 1.8em;
+        }
+
+        .texto p{
+            font-size: 1.4em;
+        }
+        .fade-in{
+            opacity: 0;
+            transition: opacity 3.5s;
+            -webkit-transition: opacity 3.5s;
+        }
+        
+    </style>
+</html>
