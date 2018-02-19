@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto|Volkhov" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="nav-bar">
+				<div class="nav-bar-logo">
+					<h2>Los Mexicanos</h2>
+				</div>
+				<div class="nav-bar-menu">
+					<label>Ordenar por:
+					<select id="select" onchange="mudou()">
+						<option>Nenhum</option>
+						<option>Prato</option>
+						<option>Acompanhamento</option>
+						<option>Bebida</option>
+					</select>
+				</div>
+			</div>
+			<div class="content">
+				<div class="title">
+					<h2>Cardápio</h2>
+				</div>
+				<div id="cardapioItems" class="cardapio-items">
+				</div>
+			</div>
+		</div>
+		<script>
+			var cardapioItems = document.getElementById('cardapioItems');
+			var cardapioItem,shadow,h2,cardapioItemImg, cardapioItemSubscription;
+			var select = document.getElementById('select');
+			var nomes = ["Guacamole", "Taco de Carne", "Burrito", "Mixiote de Cordeiro", "Corona"];
+			var imagens = ["url('images/guacamole.jpg')", "url('images/tacodecarne.jpg')", "url('images/burrito.jpg')", "url('images/mixiotedecordeiro.jpg')", "url('images/corona.jpg')"];
+			var textos = ["O guacamole é uma iguaria mexicana feita com abacate",
+			"O taco de carne é consectetur adipiscing elit. Etiam elit velit, commodo vel suscipit et, pretium eget mas", 
+			"O burrito é uma espécie de sit amet, tempus lobortis turpis. In ut rutrum or.", 
+			"O mixiote de cordeiro é uma iguaria it amet, tempus lobortis turpis. In ut rutrum orci.",
+			"Corona é uma cerveja mexicana deliciosa, servida eros non tincidunt ullamcorper, tortor risus pretium neque, vitae interdum lorem ligula a dolor."];
+			var tipos = ["acompanhamento", "acompanhamento", "acompanhamento", "prato", "bebida"];
+			
+			function mudou()
+			{
+				console.log(select.value.toString().toLowerCase());
+				var elements = document.getElementsByClassName(select.value.toString().toLowerCase());
+				var allElements = document.getElementsByClassName('cardapio-item');
+				var a;
+				for(a=0; a < allElements.length; a++)
+				{
+					allElements[a].classList.remove("order1");
+				}
+				for(a=0; a < elements.length; a++)
+				{
+					elements[a].classList.add("order1");
+				}
+			}
+			
+			for(var i=0; i<5; i++)
+			{
+				cardapioItem = document.createElement('div');
+				cardapioItem.className = 'cardapio-item ' + tipos[i];
+				
+				shadow = document.createElement('div');
+				shadow.className = 'shadow';
+				
+				h2 = document.createElement('h2');
+				h2.textContent = nomes[i];
+
+				cardapioItemImg = document.createElement('div');
+				cardapioItemImg.className = 'cardapio-item-img ';
+				cardapioItemImg.style.backgroundImage = imagens[i];
+				
+				cardapioItemSubscription = document.createElement('div');
+				cardapioItemSubscription.className = 'cardapio-item-subscription';
+				cardapioItemSubscription.textContent = textos[i];
+				
+				cardapioItem.appendChild(shadow);
+				cardapioItem.appendChild(h2);
+				cardapioItem.appendChild(cardapioItemImg);
+				cardapioItem.appendChild(cardapioItemSubscription);
+				cardapioItems.appendChild(cardapioItem);
+			}
+		</script>
+	</body>
+	<style>
+	
+		/* General Rules */
+		
+		*{
+			box-sizing: border-box;
+			font-size: 16px;
+			
+		}
+		
+		body{
+			overflow-x: hidden;
+			margin: 0;
+			min-height: 100vh;
+		}
+		
+		.container{
+			display: grid;
+			grid-template-rows: 50px 1fr;
+			min-height: 100vh;
+		}
+		
+		h1,h2,h3,h4,h5,h6{
+			margin: 0;
+			font-size: 1.5em;
+			font-family: 'Josefin Sans', sans-serif;
+		}
+		
+		p{
+			margin: 0;
+		}
+		
+		.order1{
+			order: 1 !important;
+		}
+		/* Nav Bar Rules */
+		
+		.nav-bar{
+			box-shadow: 0 5px 15px rgba(32,32,32,0.1);
+			display: grid;
+			align-items: center;
+			grid-template-columns: repeat(10, 1fr);
+			grid-template-rows: 50px;
+			grid-auto-rows: 50px;
+			grid-auto-flow: column;
+		}
+		
+		.nav-bar-menu{
+			grid-column: 1 / 5;
+			display: grid;
+			justify-content: center;
+			padding: 0 40px;
+
+		}
+		
+		.nav-bar-logo{
+			grid-column: 5 / 11;
+			display: grid;
+			align-content: center;
+			justify-content: center;
+		}
+		
+		.nav-bar-logo h2{
+			font-family: 'Roboto', sans-serif;
+			font-weight: 700;
+			color: black;
+		}
+		
+		label, select{
+			font-family: 'Josefin Sans', sans-serif;
+		}
+		select{
+			padding: 3px 2px;
+		}
+		
+		
+		/* Content Rules */
+		
+		.content{
+			display: grid;
+			grid-template-rows: auto 1fr;
+		}
+		
+		/* Title Rules */
+		.title{
+			text-align: center;
+			padding: 50px;
+		}
+		
+		.title h2{
+			font-size: 2.5em;
+		}
+		
+		/* Cardapio Rules */
+		
+		.cardapio-items{
+			display: flex;
+			flex-wrap: wrap;
+			padding: 50px;
+			justify-content: center;
+			grid-template-columns: repeat(auto-fill, minmax(290px, 330px));
+		}
+		
+		.cardapio-item{
+			order: 2;
+			position: relative;
+			cursor: pointer;
+			border: 1px solid #cccccc;
+			display: grid;
+			grid-template-rows: auto 250px auto;
+			box-shadow: 0 5px 15px rgba(32,32,32,0.3);
+			margin: 0 50px 50px 0;
+			min-width: 290px;
+			max-width: 330px;
+		}
+			
+		.shadow{
+			position: absolute;
+			min-height: 100%;
+			min-width: 100%;
+			z-index: 2;
+		}
+		
+		.shadow:hover{
+			background: #00000008;
+		}
+		
+		.cardapio-item > h2{
+			padding: 10px 20px;
+		}
+		
+		.cardapio-item-img{
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		
+		.cardapio-item-subscription{
+			font-family: 'Volkhov', serif;
+			padding: 10px 5px;
+		}
+		
+		@media screen and (max-width: 700px)
+		{
+			.cardapio-items{
+				padding: 30px;
+			}
+			
+			.cardapio-item{
+				margin-right: 0;
+			}
+		}
+		
+		@media screen and (max-width: 550px)
+		{
+		
+			.container{
+				grid-template-rows: 100px 1fr;
+			}
+			
+			.nav-bar{
+				grid-template-rows: 50px 50px;
+			}
+			
+			.nav-bar-logo{
+				grid-column: 1 / -1;
+				justify-content: center;
+			}
+			.nav-bar-menu{
+				grid-column: 1 / -1;
+				padding: 0 0 0 15px;
+			}
+			
+			.cardapio-items{
+				padding: 10px;
+			}
+			
+			.cardapio-item{
+				margin-right: 0;
+			}
+			
+		}
+	</style>
+</html>
