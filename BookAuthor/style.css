@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 0 0 30px 0;
+    background: #182325;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.wrapper{
+    height: 100%;
+    grid-column: 1 / -1;
+    display: grid;
+    padding: 0 75px;
+    grid-gap: 30px;
+    grid-template-columns: auto 1fr auto;
+    align-content: start;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+}
+
+.title{
+    grid-column: 1 / -1;
+}
+
+.title h2{
+    font-size: 3em;
+    padding: 30px 0;
+    text-align: center;
+}
+/* Side Menu */
+
+.side-menu{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    min-width: 100px;
+    max-width: 300px;
+    border-radius: 1px;
+    width: 200px;
+}
+
+.side-menu li{
+    padding: 12px 0 12px 0;
+    border: 0.5px solid #bbb9b9;
+    text-align:center;
+}
+
+.side-menu li a{
+    text-decoration: none;
+}
+
+.li-active{
+    background: #161817 !important;
+}
+
+.a-active{
+    color: #0098A8 !important;
+}
+
+
+.side-menu li:hover{
+    background: #cccccc;
+    cursor: pointer;
+}
+/* Content  */
+
+.content{
+    background: #161817;
+    padding: 10px 50px;
+    display: grid;
+    align-items: start;
+    align-content: start;
+    height: 100%;
+}
+
+.content-title{
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr auto 1fr;
+    display: grid;
+    align-items: center;
+    grid-gap: 20px;
+    font-size: 1.2em;
+    font-style: italic;
+}
+
+.content-title:before, .content-title:after{
+    content: '';
+    display: block;
+    height: 1px;
+    background: white;
+}
+
+/* Profile Section */
+
+.profile{
+    display: grid;
+    align-content: start;
+    grid-gap: 15px;
+    width: 260px;
+    max-width: 260px;
+}
+
+.profile img{
+    max-height: 350px;
+    max-width: 260px;
+    min-height: 200px;
+    min-width: 100%;
+}
+
+.profile h3{
+    font-size: 1.1em;
+    padding: 10px 0;
+    background: #161817;
+    text-align: center;
+}
+
+@media screen and (max-width: 1100px)
+{
+    .wrapper{
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .wrapper{
+        grid-gap: 30px;
+        grid-template-columns: auto auto;
+    }
+
+    .content{
+        grid-row: 3 / 4;;
+        grid-column: 1 / -1;
+    }
+}
