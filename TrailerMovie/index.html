@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">
+    </head>
+    <body>
+        <video id="video" muted loop>
+            <source src="images/video.mp4" type="video/mp4">
+        </video>
+        <div class="wrapper">
+            <div id="iframeDiv" class="iframe-div">
+                <iframe src="https://www.youtube.com/embed/wL4a4MafSjQ" allowfullscreen frameborder="0">
+                </iframe>
+                <button class="btn-fechar" onclick="fechar()">Fechar &times;</button>
+            </div>
+
+            
+            <div id="block" class="block">
+                <h2>Muito além da representatividade, Pantera Negra é histórico!</h2>
+                <p> - Elvis de Sá</p>       
+                <button class="btn-trailer" onclick="playVideo()">Trailer Completo</button>
+            </div>
+        </div>
+        <script>
+            var video = document.getElementById('video');
+            playVideoBackground();
+            
+            function fechar()
+            {
+                document.getElementById('iframeDiv').style.display = "none";
+                document.getElementById('block').style.display = "grid";
+            }
+            function playVideo()
+            {
+                document.getElementById('block').style.display = "none";
+                document.getElementById('iframeDiv').style.display = "grid";
+            }
+
+            function playVideoBackground()
+            {
+                video.currentTime = 77;
+                video.play();
+                video.addEventListener('timeupdate', function()
+                {
+                    if(video.currentTime >= 83.5)
+                    {
+                        video.pause();
+                    }
+                });
+
+                video.addEventListener('pause', function(){
+                    video.pause();
+                    video.classList.add('stopFade');
+                    setTimeout(function(){
+                        video.style.display = "none";
+                    }, 1300);
+                });
+            }
+        </script>
+    </body>
+    <style>
+
+        /* Default Rules */
+
+        *{
+            box-sizing: border-box;
+            color: white;
+            font-family: 'Arimo', sans-serif;
+            
+        }
+
+        body{
+            margin: 0;
+        }
+
+        p{
+            margin:0;
+            padding: 0;
+            justify-self: start;
+            font-size: 1.5em;
+            font-style: italic;
+        }
+
+        h2{
+            margin:0;
+            font-size: 2em;
+        }
+
+        button{
+            cursor: pointer;
+            padding: 15px 25px;
+            border: 1px solid white;
+            color: #272727;
+            font-size: 1.3em;
+            background: #cdd6cdd9;
+        }   
+        
+        button:hover{
+            background: #a6aba6d9;
+        }
+
+        /* Background Video Autoplayed */
+
+        video{
+            position: fixed;
+            z-index: 20;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            transition-duration: 2s;
+            transition-property: opacity;
+            background: #485563;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to left, #29323c, #485563);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to left, #29323c, #485563); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }        
+        
+        .stopFade{
+            opacity: 0;
+        }
+
+        /* Background Image Poster */
+        .wrapper{
+            display: grid;
+            min-width: 100vw;
+            min-height: 100vh;
+            justify-items: center;
+            align-items: start;
+            z-index: 10;
+            background: url('images/poster3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .block{
+            display: grid;
+            align-items: start;
+            justify-items: center;
+            background: rgba(0,0,0,0.5);
+            grid-gap: 20px;
+            padding: 20px 20px 30px 20px;
+            margin-top: 125px;
+        }
+        
+        .btn-trailer{
+            min-width: 260px;
+            max-width: 300px;
+        }
+
+        /* Youtube Embed */
+
+        .iframe-div{
+            display:none;
+            grid-template-columns: 660px;
+            height: 650px;
+            align-self: center;
+            grid-gap: 10px;
+            justify-items: end;
+            align-items: start;
+            grid-template-rows: 1fr auto;
+            padding: 10px;
+        }
+
+        iframe{
+            grid-column:  1 / 2;
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        @media screen and (max-width: 665px)
+        {
+            .iframe-div{
+                height: 100%;
+                grid-template-columns: 1fr;
+            }
+
+
+            .btn-trailer, .btn-fechar{
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</html>
