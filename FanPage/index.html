@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1 class="bemvindo">Bem Vindo ao fã site do J Cole</h1>
+            <h2 class="avontade">Fique a vontade</h2>
+            <ul class="horizontal-menu">
+                <li>Noticias</li>
+                <li>Instagram</li>
+                <li>Spotify</li>
+            </ul>
+            <div class="content-feed">
+                <div id="instafeed">
+
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/instafeed.min.js"></script>
+        <script>
+            var feed = new Instafeed({
+                    get: 'user',
+                    userId: '6825675429',
+                    clientId: '46947fce029642dabed64bdcde2a5716'
+                });
+                feed.run();
+        </script>
+    </body>
+</html>
