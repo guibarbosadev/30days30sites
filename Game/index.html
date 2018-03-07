@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Nunito|Roboto" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="video-div">
+            <video id="video" autoplay muted>
+                <source src="media/comercial.mp4" type="video/mp4">
+            </video>
+            <img id="wallpaper" src="media/wallpaper3.jpeg">
+            <h1>Jogo da Vida</h1>
+            <h2>Tome decisões, faça investimentos, vença a vida.</h2>
+        </div>
+
+        <div class="versoes">
+            <h1 class="versoes-title">Versões</h1>
+            <div class="versoes-items">
+                <div class="versoes-item">
+                    <img src="media/jogodavida.png">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="pdf/jogodavida.pdf" target="_blank"><button class="btn-regras">Regras do Jogo</button></a>
+                </div>
+                <div class="versoes-item">
+                    <img src="media/app.png">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="https://www.youtube.com/watch?v=hYFDV2Zb5c8" target="_blank"><button class="btn-regras">Regras do Jogo</button></a>
+                </div>
+                <div class="versoes-item">
+                    <img src="media/cartas.jpg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="pdf/cartas.pdf" target="_blank"><button class="btn-regras">Regras do Jogo</button></a>
+                </div>
+                <div class="versoes-item">
+                    <img src="media/super.png">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="media/super.pdf" target="_blank"><button class="btn-regras">Regras do Jogo</button></a>
+                </div>
+                <div class="versoes-item">
+                    <img src="media/retro.jpg">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="pdf/retro.pdf" target="_blank"><button class="btn-regras">Regras do Jogo</button></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        var video = document.getElementById('video');
+        var wallpaper = document.getElementById('wallpaper');
+        video.addEventListener('ended', videoEncerrou, false);
+
+        function videoEncerrou()
+        {
+            video.style.display = "none";
+            wallpaper.style.display = "inherit";
+        }
+    </script>
+</html>
