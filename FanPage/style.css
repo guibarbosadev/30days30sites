@@ -2,6 +2,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
     color: white;
 }
 
@@ -10,17 +11,33 @@ html, body{
     padding: 0;
 }
 
+body{
+    position: relative;
+}
+.bg{
+    background: url('images/jcole-bg.jpg');
+    background-repeat: repeat-y;
+    position: absolute;
+    top:0;
+    left:0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.05;
+}
+
 
 h1,h2{
     margin: 0;
 }
 
 .bemvindo{
-    font-size: 4em;
+    font-size: 3.5em;
+
 }
 
 .avontade{
-    font-size: 3em;
+    font-size: 2.5em;
+    font-style: italic;
 }
 
 body{
@@ -31,8 +48,8 @@ body{
 }
 
 .wrapper{
-    max-width: 900px;
-    padding: 100px 10px;
+    max-width: 950px;
+    padding: 50px 10px;
     display: grid;
     grid-row-gap: 30px;
     align-content: start;
@@ -61,13 +78,100 @@ ul li{
     padding: 10px 20px;
 }
 
-ul li:hover{
-    background: #ffffff50;
+
+/* Feed */
+
+
+#newsFeed, #spotifyFeed, #instaFeed{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#spotifyFeed{
+    justify-content: flex-start;
+}
+
+.news-feed-item, .insta-feed-item{
+    cursor: pointer;
+    width: calc(300px - 30px);
+    margin: 15px;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    order: 1;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.spotify-feed-item{
+    cursor: pointer;
+    width: 425px;
+    margin: 15px;
+    height: 380px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.5);
+    order: 1;
 }
 
 
-/* Content Feed */
+.news-feed-item{
+    background: #3C3B3F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
-.content-feed{
-    background: #576480;
+.insta-feed-item{
+    background: #CB356B;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #BD3F32, #CB356B);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #BD3F32, #CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.news-feed-item:hover, .insta-feed-item:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.7);
+} 
+
+.active{
+    background-color: #ffffff50;
+}
+
+.btn-mais{
+    order: 2;
+    cursor: pointer;
+    background: lightgreen;
+    padding: 10px 50px;
+    margin-top: 40px;
+    color: white;
+    border: none;
+}
+
+.btn-mais:hover{
+    transform: scale(1.03);
+    border: 1px solid white;
+}
+
+@media screen and (max-width: 900px)
+{
+    *{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 700px)
+{
+    *{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 500px)
+{
+    *{
+        font-size: 12px;
+    }
+    .spotify-feed-item{
+        width: 300px;
+    }
 }

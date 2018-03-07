@@ -1,32 +1,110 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
+        <div class="bg"></div>
         <div class="wrapper">
-            <h1 class="bemvindo">Bem Vindo ao fã site do J Cole</h1>
+            <h1 class="bemvindo">Bem-vindo ao fã site do J Cole</h1>
             <h2 class="avontade">Fique a vontade</h2>
             <ul class="horizontal-menu">
-                <li>Noticias</li>
-                <li>Instagram</li>
-                <li>Spotify</li>
+                <li class="tab" onclick="mostrarTabContent(0)">Noticias</li>
+                <li class="tab" onclick="mostrarTabContent(1)">Spotify</li>
+                <li class="tab" onclick="mostrarTabContent(2)">Instagram</li>
             </ul>
             <div class="content-feed">
-                <div id="instafeed">
-
+                <div id="newsFeed" class="tab-content">
+                    <button class="btn-mais" onclick="verMais(0)">Ver mais</button>
                 </div>
+                <div id="spotifyFeed" class="tab-content">
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:71DEqZQPK1OhGtZ9bNtbcc" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:7viNUmZZ8ztn2UB4XB3jIL" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:1NfrmcXk8xNennyxQ57JcW" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:3bgYigYVfRCIsE3lm1GQga" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:4skqOUXyBUnzxVPNPxrGWV" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                        <iframe class="spotify-feed-item" src="https://open.spotify.com/embed?uri=spotify:album:01bX1QVMshWYjWeGvFCinV" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>
+                <div id="instaFeed" class="tab-content">
+                    <button class="btn-mais" onclick="verMais(1)">Ver mais</button>
+                </div>
+            
             </div>
         </div>
-        <script type="text/javascript" src="js/instafeed.min.js"></script>
         <script>
-            var feed = new Instafeed({
-                    get: 'user',
-                    userId: '6825675429',
-                    clientId: '46947fce029642dabed64bdcde2a5716'
-                });
-                feed.run();
+            var news = 1;
+            var insta = 1;
+            var tabs = document.getElementsByClassName('tab');
+            console.log(tabs);
+            var tabsContents = document.getElementsByClassName('tab-content');
+            // News Variables
+            var newsNumberItems = 12;
+            // Instagram Variables
+            var instaNumberItems = 12;
+            var feedItem;
+            var instaFeed = document.getElementById('instaFeed');
+            var newsFeed = document.getElementById('newsFeed');
+            console.log("ID: " + instaFeed.id);
+            function populateFeed(number, feed, classe)
+            {
+                switch(feed.id)
+                {
+                    case 'newsFeed':
+                        for (var i = 0; i < number; i++) {
+                            feedItem = document.createElement('div');
+                            feedItem.textContent = "Noticia " + news;
+                            feedItem.className = classe;
+                            feed.appendChild(feedItem);
+                            news++
+                        }
+                        break;
+                    case 'instaFeed':
+                        for (var i = 0; i < number; i++) {
+                            feedItem = document.createElement('div');
+                            feedItem.textContent = "Foto " + insta;
+                            feedItem.className = classe;
+                            feed.appendChild(feedItem);
+                            insta++;
+                        }
+                        break;
+                }
+                
+            }
+
+            
+            function mostrarTabContent(tabIndex)
+            {
+                for(var i=0; i<tabsContents.length; i++)
+                {
+                    tabsContents[i].style.display = "none";
+                    tabs[i].classList.remove("active");
+                }
+
+                tabsContents[tabIndex].style.display = "flex";
+                tabs[tabIndex].className += " active";
+            }
+            
+            function verMais(index)
+            {
+                switch(index)
+                {
+                    case 0:
+                        populateFeed(6, newsFeed, 'news-feed-item');
+                        break;
+                    case 1:
+                        populateFeed(6, instaFeed, 'insta-feed-item');
+                        break;
+                   
+                }
+            }
+
+            populateFeed(newsNumberItems, newsFeed, 'news-feed-item');
+            populateFeed(instaNumberItems, instaFeed, 'insta-feed-item');
+            mostrarTabContent(0);
         </script>
+
     </body>
 </html>
