@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    </head>
+    <body>
+        <div class="initial">
+            <div class="initial-block">
+                <h1>Olá, eu sou fotógrafo.</h1>
+                <h2>Confira um pouco do meu trabalho.</h2>
+                <button>Conferir</button>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+            <div class="foto">
+                <div class="overlay"></div>
+            </div>
+        </div>
+        <!-- <div class="minhas-fotos">
+            <h1>Minhas Fotos</h1>
+            <img src="1.jpg" alt="1" class="foto">
+            <img src="2.jpg" alt="2" class="foto">
+            <img src="3.jpg" alt="3" class="foto">
+            <img src="4.jpg" alt="4" class="foto">
+            <img src="5.jpg" alt="5" class="foto">
+            <img src="6.jpg" alt="6" class="foto">
+            <img src="7.jpg" alt="7" class="foto">
+            <img src="8.jpg" alt="8" class="foto">
+            <img src="9.jpg" alt="9" class="foto">
+            <img src="10.jpg" alt="10" class="foto">
+            <img src="11.jpg" alt="11" class="foto">
+            <img src="12.jpg" alt="12" class="foto">
+        </div> -->
+        <style>
+            *{
+                box-sizing: border-box;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: white;
+            }
+
+            body,h1,h2{
+                margin: 0;
+            }
+
+            h1{
+                font-size: 3rem;
+            }
+            h2{
+                font-size: 2rem;
+            }
+
+            .initial{
+                display: grid;
+                position: relative;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                min-height: 100vh;
+            }
+            
+            .initial-block{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                z-index: 10;    
+            }
+
+            .initial-block button{
+                cursor: pointer;
+                padding: 10px 60px;
+                background: transparent;
+                border: 1px solid white;
+                font-size: 1.3rem;
+                margin-top: 20px;
+            }
+
+            .initial-block button:hover{
+                background: #FFFFFF50;
+            }
+            
+            .foto{
+                display: grid;
+                cursor: pointer;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                min-height: 200px;
+            }
+            
+            .foto .overlay{
+                transition-property: all;
+                transition-duration: 200ms;
+                transition-timing-function: ease-in-out;
+                background: #00000050;
+            }
+
+            .foto:hover .overlay{
+                background: none;
+            }
+
+            @media screen and (max-width: 800px)
+            {
+                .initial{
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(4, 1fr);
+                }
+            }
+
+            @media screen and (max-width: 800px)
+            {
+                .initial{
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-template-rows: repeat(4, 1fr);
+                }
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>
+            const initial = document.querySelector('.initial');
+            const fotos = document.querySelectorAll('.foto');
+            var numbersUsed = [-2];
+            var number;
+            for(var i=0; i <fotos.length; i++)
+            {
+                fotos[i].style.backgroundImage = "url('images/" + generateRandomNumber() + ".jpg')";
+            }
+
+            function generateRandomNumber()
+            {
+                do{
+                    number = Math.floor(Math.random() * 12) + 1;
+                }while(numbersUsed.indexOf(number) != -1);
+                numbersUsed.push(number);
+                return number;
+            }
+        </script>
+
+    </body>
+</html>
