@@ -11,4 +11,5 @@ Day 7 - https://guilhermebpereira.github.io/30days30sites/TrailerMovie/ <br>
 Day 8 - https://guilhermebpereira.github.io/30days30sites/FanPage/ <br>
 Day 9 - https://guilhermebpereira.github.io/30days30sites/Game/ <br>
 Day 10 - https://guilhermebpereira.github.io/30days30sites/Photographer/ <br>
+Day 11 - https://guilhermebpereira.github.io/30days30sites/Events/index.html <br>
 
