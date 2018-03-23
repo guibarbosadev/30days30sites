@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrapper">   
+        <h1 class="logo">Technology Palace</h1>
+        <div class="title">
+            <h1>Palestras, eventos, meetups</h1>
+            <h3>Cada dia, um novo assunto</h3>
+            <button>Saiba mais</button>
+        </div>
+        <div class="week">
+            <div class="week-day">
+                <h4 class="day">Segunda</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Hackaton de Web Scraping</h4>
+                    <h6 class="week-day-event-time">Horário: 18:00h às 23:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Paulo Gonçalves Freire</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Terça</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Node.js e seu poder</h4>
+                    <h6 class="week-day-event-time">Horário: 8:00h às 10:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Fábia Assunção</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Quarta</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">O que é MVC e por quê usar</h4>
+                    <h6 class="week-day-event-time">Horário: 10:00h às 12:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Gustavo Pietro Dias</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Quinta</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Singleton e suas aplicações</h4>
+                    <h6 class="week-day-event-time">Horário: 10:00h às 12:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Nagashi Okimoto</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Sexta</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Introdução a Javascript</h4>
+                    <h6 class="week-day-event-time">Horário: 11:00h às 13:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Ellen Gonçalves e Cássia Dias</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Sábado</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Typescript e seus poderes</h4>
+                    <h6 class="week-day-event-time">Horário: 10:00h às 12:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Mário Ferreira Alves</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+            <div class="week-day">
+                <h4 class="day">Domingo</h4>
+                <div class="week-day-event">
+                    <h4 class="week-day-event-title">Angular e sua importância</h4>
+                    <h6 class="week-day-event-time">Horário: 19:00h às 24:00h</h6>
+                    <h6 class="week-day-event-speaker">Palestrante(s): Cássio Santos Silva</h6>
+                    <h6 class="week-day-event-description">Nessa apresentação, os palestrantes irão lorem imsasa sjaisai saojsajsa sjisasa saisa sasasa sas saushau</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+<style>
+    * {
+        font-family: 'Open Sans', sans-serif;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        color: white;
+
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0 0 5px 0;
+    }
+
+    .wrapper {
+        display: grid;
+        min-height: 100vh;
+        grid-template-rows: auto minmax(250px, 1fr) auto;
+        background-image: url('images/background2.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+
+    .logo {
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 4em;
+        text-align: center;
+        font-weight: 100;
+        padding: 50px 0 10px 0;
+    }
+
+    .title {
+        display: grid;
+        justify-items: center;
+        align-content: start;
+        align-items: start;
+        height: 100%;
+        text-align: center;
+        padding: 50px 0 100px 0;
+    }
+
+    .title h1{
+        margin-bottom: 2px;
+    }
+    .title h3{
+        margin-bottom: 20px;
+    }
+    .title button {
+        cursor: pointer;
+        font-size: 16px;
+        background: #ffffff50;
+        border: 1px solid white;
+        color: white;
+        font-weight: bold;
+        padding: 10px 30px;
+    }
+
+    .title button:hover{
+        background: #ffffff80;
+        color: #f1f1f1;
+    }
+
+
+    .week {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-column: 1 / -1;
+        grid-row-gap: 20px;
+        grid-column-gap: 30px;
+        padding: 50px;
+        padding-top: 0px;
+    }
+
+    .week-day {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        font-size: 1.3em;
+        cursor: pointer;
+        text-align: center;
+        transition-property: all;
+        transition-duration: 1s;
+        transition-delay: 50ms;
+        min-height: 250px;
+        background: #15121280;
+    }
+
+    .day{
+        font-size: 1.3em;
+    }
+
+    .week-day-event {
+        text-align: left;
+        padding: 0px 10px 5px 10px;
+        color: #f1f1f1;   
+    }
+
+    .week-day-event-title{
+        font-family: 'IBM Plex Sans', sans-serif;
+        text-align: center;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+        margin-bottom: 10px;
+    }
+
+    
+    .week-day-event-speaker,.week-day-event-timer,.week-day-event-description{
+        font-size: 16px;
+    }
+    .week-day:hover {
+        background: #151212;
+        transform: scaleY(1.01);
+        transform-origin: bottom;
+    }
+
+    @media screen and (max-width: 600px)
+    {
+        .title{
+            padding-bottom: 20px;
+        }
+    }
+</style>
+
+</html>
